@@ -75,5 +75,21 @@ class MainActivity : AppCompatActivity() {
                 Log.i(TAG," onInterstitialAdFailedToLoadState true")
             }
         })
+
+        mobAd.onAdOpenedState(isAdOpened = { adOpened, isAdOpened ->
+            Toast.makeText(this," onAdOpenedState : $adOpened",Toast.LENGTH_LONG).show()
+            if (isAdOpened == adOpened) {
+                Toast.makeText(this," onAdOpenedState : true",Toast.LENGTH_LONG).show()
+
+            }
+        })
+        mobAd.onAdClosedState(isOnAdClosed = { adClosed, isOnAdClosed ->
+            Toast.makeText(this," onAdClosedState : $isOnAdClosed",Toast.LENGTH_LONG).show()
+
+            if (isOnAdClosed == adClosed) {
+                Toast.makeText(this," onAdClosedState : true",Toast.LENGTH_LONG).show()
+
+            }
+        })
     } // fun of requestInterstitialAd
 } // class of MainActivity
