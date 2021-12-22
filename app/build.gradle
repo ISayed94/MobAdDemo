@@ -51,6 +51,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 
-    implementation 'com.gitlab.imw-developers:mobad-android-sdk:2.1.1-Testing'
+    implementation 'com.gitlab.imw-developers:mobad-android-sdk:2.3.0'
 
 }
