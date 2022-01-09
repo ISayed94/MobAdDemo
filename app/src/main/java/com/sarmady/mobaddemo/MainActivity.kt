@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setupMobAd()
 
         binding.btRequestAd.setOnClickListener {
+            Toast.makeText(this,"requestInterstitialAd click",Toast.LENGTH_LONG).show()
             requestInterstitialAd()
         }
 
@@ -31,6 +32,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupMobAd()
     {
+
+        Toast.makeText(this,"setupMobAd",Toast.LENGTH_LONG).show()
+
+
         mobAd = MobAd(this)
 
         mobAd.initializeUser(null, onSuccess = {
@@ -43,8 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-
-
     } // fun of setupMobAd
 
     private fun requestInterstitialAd()
@@ -52,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         if(mobAd.isUserInitialized())
             mobAd.requestInterstitialAd(1000)
 
-        mobAd.setMaximumAdsPerDay(10, onSuccess = { limitExceeded, newMaxAdsPerDayValue ->
+        mobAd.setMaximumAdsPerDay(30, onSuccess = { limitExceeded, newMaxAdsPerDayValue ->
             Log.i(TAG," setMaximumAdsPerDay onSuccess : $limitExceeded , $newMaxAdsPerDayValue")
             Toast.makeText(this,"setMaximumAdsPerDay onSuccess",Toast.LENGTH_LONG).show()
 
